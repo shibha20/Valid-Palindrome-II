@@ -1,0 +1,17 @@
+import re
+class Solution(object):
+
+    def validPalindrome(self, s):
+        newstring= list(s)
+        for i in range(0,len(s)):
+            char_i= newstring.pop(i)
+            new = "".join(newstring).lower()
+            alphanumeric = re.sub(r'[^a-zA-Z0-9]', '', new)
+            reversestring = alphanumeric[::-1] 
+            if alphanumeric == reversestring:
+                return True
+            newstring.insert(i, char_i)
+        return False
+
+
+
